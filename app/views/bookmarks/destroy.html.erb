@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>New Bookmark</h1>
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.association :bookmark %>
+    <%= f.submit "Delete", class: "btn btn-primary" %>
+  <% end %>
+</div>

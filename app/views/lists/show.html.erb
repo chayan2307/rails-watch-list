@@ -7,4 +7,8 @@
     <% end %>
   </ul>
   <%= link_to "Create Bookmark", new_list_bookmark_path(@list) %>
+  <br>
+  <%= link_to "Delete Bookmark", bookmark_path(@list) %>
+  <br>
+  <%= link_to "Back to list", lists_path %>
 </div>
