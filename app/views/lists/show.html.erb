@@ -1,14 +1,29 @@
-<div class="container">
-  <h1><%= @list.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.movies.sample.poster_url %>);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
 
-  <ul>
-    <% @list.movies.each do |movie| %>
-      <li><%= movie.title %></li>
-    <% end %>
-  </ul>
-  <%= link_to "Create Bookmark", new_list_bookmark_path(@list) %>
+
+<div class="container mt-3 cards">
+  <% @list.movies.each do |movie| %>
+    <div class="card mlr-5" style="width: 18rem;">
+      <img src="<%= movie.poster_url %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= movie.title %></h5>
+        <p class="card-text"><%= movie.overview %></p>
+        <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<div class="container mt-3">
+  <a class="btn btn-gradient mb-2" href=<%= new_list_bookmark_path(@list) %>>Create Bookmark</a>
   <br>
-  <%= link_to "Delete Bookmark", bookmark_path(@list) %>
+  <a class="btn btn-gradient mb-2" href=<%= bookmark_path(@list) %>>Delete Bookmark</a>
   <br>
-  <%= link_to "Back to list", lists_path %>
+  <a class="btn btn-gradient" href=<%= lists_path %>>Back to list</a>
 </div>
