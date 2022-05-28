@@ -1,4 +1,16 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.movies.sample.poster_url %>);">
+<%
+def hello(movies)
+    puts 'here'
+    if movies.length.zero?
+     return ''
+    else
+     return movies.sample.poster_url
+    end
+    end
+%>
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= hello(@list.movies) %>);">
   <div class="container">
     <h1><%= @list.name %></h1>
   </div>

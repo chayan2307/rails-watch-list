@@ -1,3 +1,15 @@
+<%
+def hello(movies)
+    puts 'here'
+    if movies.length.zero?
+     return ''
+    else
+     return movies.sample.poster_url
+    end
+    end
+%>
+
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/03/movie-lovers-youtube.jpg?q=50&fit=contain&w=1500&h=750&dpr=1.5);">
   <div class="container">
     <h1>Le Wagon brings <strong>list of top movies</strong> for <strong>Movie Lovers</strong>!</h1>
@@ -16,7 +28,7 @@
 <div class="container mt-3">
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.sample.poster_url %>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= hello(list.movies) %>)">
         <%= link_to list.name, list_path(list) %>
       </div>
     <% end %>
